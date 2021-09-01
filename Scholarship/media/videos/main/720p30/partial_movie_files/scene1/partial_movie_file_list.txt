@@ -1,0 +1,13 @@
+# This file is used internally by FFMPEG.
+file 'file:/home/preminstrel/Manim/Scholarship/media/videos/main/720p30/partial_movie_files/scene1/671624426_104701822_2021731175.mp4'
+file 'file:/home/preminstrel/Manim/Scholarship/media/videos/main/720p30/partial_movie_files/scene1/815625859_1491962050_3990604614.mp4'
+file 'file:/home/preminstrel/Manim/Scholarship/media/videos/main/720p30/partial_movie_files/scene1/815625859_105216013_3215840126.mp4'
+file 'file:/home/preminstrel/Manim/Scholarship/media/videos/main/720p30/partial_movie_files/scene1/815625859_4148745048_3157615673.mp4'
+file 'file:/home/preminstrel/Manim/Scholarship/media/videos/main/720p30/partial_movie_files/scene1/815625859_1762415712_69690711.mp4'
+file 'file:/home/preminstrel/Manim/Scholarship/media/videos/main/720p30/partial_movie_files/scene1/815625859_2425850366_616934736.mp4'
+file 'file:/home/preminstrel/Manim/Scholarship/media/videos/main/720p30/partial_movie_files/scene1/815625859_1474345255_2882909451.mp4'
+file 'file:/home/preminstrel/Manim/Scholarship/media/videos/main/720p30/partial_movie_files/scene1/815625859_630844560_95771626.mp4'
+file 'file:/home/preminstrel/Manim/Scholarship/media/videos/main/720p30/partial_movie_files/scene1/815625859_3493912594_273622090.mp4'
+file 'file:/home/preminstrel/Manim/Scholarship/media/videos/main/720p30/partial_movie_files/scene1/815625859_1544473763_1059785472.mp4'
+file 'file:/home/preminstrel/Manim/Scholarship/media/videos/main/720p30/partial_movie_files/scene1/815625859_1567632466_991739052.mp4'
+file 'file:/home/preminstrel/Manim/Scholarship/media/videos/main/720p30/partial_movie_files/scene1/815625859_1491962050_3331288739.mp4'

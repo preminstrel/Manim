@@ -143,41 +143,107 @@ class scene1(Scene):
         maths=Tex("数学分析",tex_template=TexTemplateLibrary.ctex,color="BLACK").scale(0.7).move_to(LEFT*4+UP*1.7)
         rectan1=Rectangle(color="BLUE")
         rectan1.surround(maths,buff=0.35)
-        group1 = VGroup(maths,rectan1)
+        #group1 = VGroup(maths,rectan1)
         s1=Tex("99",color="BLACK").move_to(LEFT*2.5+UP*1.7)
+        rec1=Circle(color="BLUE")
+        rec1.surround(s1)
 
         linear_a=Tex("线性代数",tex_template=TexTemplateLibrary.ctex,color="BLACK").scale(0.7).move_to(LEFT*4+UP*0.5)
-        rectan2=Rectangle(color="RED")
+        rectan2=Rectangle(color="BROWN")
         rectan2.surround(linear_a,buff=0.35)
-        group2=VGroup(linear_a,rectan2)
+        #group2=VGroup(linear_a,rectan2)
         s2=Tex("98",color="BLACK").move_to(LEFT*2.5+UP*0.5)
+        rec2=Circle(color="BROWN")
+        rec2.surround(s2)
 
         Phy=Tex("大学物理",tex_template=TexTemplateLibrary.ctex,color="BLACK").scale(0.7).move_to(LEFT*4+DOWN*0.7)
-        rectan3=Rectangle(color="YELLOW")
+        rectan3=Rectangle(color="GRAY")
         rectan3.surround(Phy,buff=0.35)
         #group3 = VGroup(Phy,rectan3)
         s3 = Tex("98",color="BLACK").move_to(LEFT*2.5+DOWN*0.7)
-
+        rec3=Circle(color="GRAY")
+        rec3.surround(s3)
+        
         C=Tex("程序设计",tex_template=TexTemplateLibrary.ctex,color="BLACK").scale(0.7).move_to(LEFT*4+DOWN*1.9)
-        rectan4=Rectangle(color="GREEN")
+        rectan4=Rectangle(color="GOLD")
         rectan4.surround(C,buff=0.35)
-        group3=VGroup(Phy,rectan3,C,rectan4)
+        group3=VGroup(Phy,C)
         s4=Tex("97",color="BLACK").move_to(LEFT*2.5+DOWN*1.9)
-
+        rec4=Circle(color="GOLD")
+        rec4.surround(s4)
+        
+        maths1=Tex("数据结构",tex_template=TexTemplateLibrary.ctex,color="BLACK").scale(0.7).move_to(RIGHT*1.5+UP*1.7)
+        rectan5=Rectangle(color="BLUE")
+        rectan5.surround(maths1,buff=0.35)
+        #group1 = VGroup(maths,rectan1)
+        s5=Tex("99",color="BLACK").move_to(RIGHT*4+UP*1.7)
+        rec5=Circle(color="BLUE")
+        rec5.surround(s5)
+  
+        Signal=Tex("信号与系统",tex_template=TexTemplateLibrary.ctex,color="BLACK").scale(0.7).move_to(RIGHT*1.56+UP*0.5)
+        rectan7=Rectangle(color="BROWN")
+        rectan7.surround(linear_a,buff=0.30)
+        #group2=VGroup(linear_a,rectan2)
+        s7=Tex("95",color="BLACK").move_to(RIGHT*4+UP*0.5)
+        rec7=Circle(color="BROWN")
+        rec7.surround(s7)       
+        
+        Complexf=Tex("复变函数",tex_template=TexTemplateLibrary.ctex,color="BLACK").scale(0.7).move_to(RIGHT*1.5+DOWN*1.9)
+        rectan8=Rectangle(color="GOLD")
+        rectan8.surround(Complexf,buff=0.35)
+        #group4=VGroup(Phy,C)
+        s8=Tex("98",color="BLACK").move_to(RIGHT*4+DOWN*1.9)
+        rec8=Circle(color="GOLD")
+        rec8.surround(s8)
+        
+        gtwl=Tex("固体物理",tex_template=TexTemplateLibrary.ctex,color="BLACK").scale(0.7).move_to(RIGHT*1.5+DOWN*0.7)
+        rectan6=Rectangle(color="GRAY")
+        rectan6.surround(gtwl,buff=0.35)
+        #group3 = VGroup(Phy,rectan3)
+        s6 = Tex("96",color="BLACK").move_to(RIGHT*4+DOWN*0.7)
+        rec6=Circle(color="GRAY")
+        rec6.surround(s6)
+        
         self.play(
-            Transform(Average,group1),
-            Transform(GPA,group2),
+            Transform(Average,maths),
+            Transform(GPA,linear_a),
             Transform(Rank,group3),
+            Write(maths1),
+            Create(rectan5),
+            Write(Complexf),
+            Create(rectan8),
+            Write(gtwl),
+            Write(Signal),
+            Create(rectan7),
+            Create(rectan6),
+            Create(rectan1),
+            Create(rectan2),
+            Create(rectan3),
+            Create(rectan4),
             FadeOut(Aver100),
             FadeOut(number),
             FadeOut(number2),
             FadeOut(Rank1),
             FadeOut(GPA4),
+            Create(Line(UP*2.5,DOWN*3,stroke_opatity=0.3,color="BLACK")),
         )
         self.play(
-
             Write(s1),
             Write(s2),
             Write(s3),
             Write(s4),
+            Write(s5),
+            Write(s6),
+            Write(s7),
+            Write(s8),
+            Transform(rectan1,rec1),
+            Transform(rectan2,rec2),
+            Transform(rectan3,rec3),
+            Transform(rectan4,rec4),
+         
+            Transform(rectan5,rec5),
+            Transform(rectan6,rec6),
+            Transform(rectan7,rec7),
+            Transform(rectan8,rec8),
         )
+### END of Details

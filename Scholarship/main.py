@@ -217,7 +217,7 @@ class NeuralNetworkMobject(VGroup):
         self.output_labels = VGroup()
         for layer in self.layers[1:-1]:
             for n, neuron in enumerate(layer.neurons):
-                label = MathTex(r"{%s}_{{%s}}"%(str(l),str(n+1)))
+                label = MathTex(r"{%s}_{{%s}}"%(str(l),str(n+1))).set_color_by_tex(tex=r"{%s}_{{%s}}"%(str(l),str(n+1)),color="BLACK")
                 label.set_height(0.4 * neuron.get_height())
                 label.move_to(neuron)
                 self.output_labels.add(label)
@@ -235,7 +235,7 @@ class Count(Animation):
         value = self.start + (alpha * (self.end - self.start))
         self.mobject.set_value(value)
 
-class scene1(Scene):
+class S1(Scene):
     def construct(self):
         SEU = ImageMobject("SEU.jpg").scale(0.7)
         SEU2 = ImageMobject("SEU.jpg").scale(0.7)
@@ -247,9 +247,9 @@ class scene1(Scene):
         institution.move_to(DOWN*2.5)
         date.move_to(DOWN*3.5)
         self.play(
-            FadeInFrom(SEU,UP),
+            FadeIn(SEU,shift=UP),
             Write(title),
-            FadeInFrom(author, UP),
+            FadeIn(author, scale=1.5),
             Write(date),
             Write(institution),
         )
@@ -285,7 +285,7 @@ class scene1(Scene):
         me = ImageMobject("ME.png").scale(0.13)
         self.play(FadeIn(me))
         self.play(ApplyMethod(me.shift,LEFT*4))
-        Major = Tex("Major\qquad 电子科学与技术",tex_template=TexTemplateLibrary.ctex,color="BLACK").scale(0.9).move_to(UP*0.8+RIGHT*0.9)
+        Major = Tex("Major\qquad 电子科学与技术（无锡）",tex_template=TexTemplateLibrary.ctex,color="BLACK").scale(0.9).move_to(UP*0.8+RIGHT*0.9)
         Name = Tex("Name\qquad 孙寒石",tex_template=TexTemplateLibrary.ctex,color="BLACK").scale(0.9)
         Class = Tex("Class\qquad 062191",tex_template=TexTemplateLibrary.ctex,color="BLACK").scale(0.9).move_to(DOWN*0.8)
         self.play(
@@ -296,7 +296,7 @@ class scene1(Scene):
         
     ## Contents
         self.play(
-            FadeOut(Major),
+            FadeOut(Major, shift=DOWN*2,scale=1.5),
             FadeOut(me),
             FadeOut(Name, shift=DOWN * 2, scale=1.5),
             FadeOut(Class, shift=DOWN * 2, scale=1.5),
@@ -427,7 +427,7 @@ class scene1(Scene):
         s6 = Tex("96",color="BLACK").move_to(RIGHT*4+DOWN*0.7)
         rec6=Circle(color="GRAY")
         rec6.surround(s6)
-        line1 = Line(UP*2.5,DOWN*3,stroke_opatity=0.3,color="BLACK")
+        line1 = Line(UP*2.5,DOWN*3,color="BLACK").set_opacity(0.3)
         self.play(
             Transform(Average,maths),
             Transform(GPA,linear_a),
@@ -493,7 +493,7 @@ class scene1(Scene):
             Unwrite(gtwl),
             Unwrite(Signal),
             Unwrite(maths1),
-            Unwrite(Rank),
+            Unwrite(Rank,run_time=1),
             Unwrite(Complexf),
             Unwrite(Average),
             Unwrite(GPA),
@@ -510,13 +510,12 @@ class scene1(Scene):
             ApplyMethod(Content1.shift,UP*3),
             #Transform(Content1,Study_copy)  Mind the Difference!!
         )
-class S2(Scene):
-    def construct(self):
+
         R2=Tex("电子束光刻工艺的高精度三维仿真研究（国创）",tex_template=TexTemplateLibrary.ctex,color="BLACK").scale(0.7).move_to(DOWN*0.75)
         R1=Tex("基于神经网络的高能效ECG分类算法研究（省创）",tex_template=TexTemplateLibrary.ctex,color="BLACK").scale(0.7).move_to(UP*0.75)
         Teacher1=Tex("指导教师：刘昊",tex_template=TexTemplateLibrary.ctex,color="BLACK").scale(0.5).move_to(UP*0.15)
         Teacher2=Tex("指导教师：周再发",tex_template=TexTemplateLibrary.ctex,color="BLACK").scale(0.5).move_to(DOWN*1.35)
-        Proj=Tex("Projects:",color="BLACK").move_to(LEFT*5+UP*2)
+        Proj=Tex("\\emph{Projects:}",color="BLACK").move_to(LEFT*5+UP*2)
         self.play(
             Write(Teacher1),
             Write(Teacher2),
@@ -525,8 +524,8 @@ class S2(Scene):
             Write(Proj),
         )#        conf={
 
-        self.play(Unwrite(R2),Unwrite(Teacher1),Unwrite(Teacher2),Unwrite(Proj),ApplyMethod(R1.scale,1.3))
-        self.play(ApplyMethod(R1.shift,UP*2.5))
+        self.play(Unwrite(R2),Unwrite(Teacher1),Unwrite(Teacher2),Unwrite(Proj),ApplyMethod(R1.scale,0.6))
+        self.play(ApplyMethod(R1.to_corner,DOWN+LEFT))
         conf={
             "output_neuron_color": GREEN,
             "input_neuron_color": ORANGE,
@@ -538,7 +537,7 @@ class S2(Scene):
         nn = NeuralNetworkMobject([7,5,8,10,6,1],**conf).scale(1).move_to(DOWN*0.5+RIGHT*0.7)
         nn.label_inputs('x')
         nn.label_outputs("\hat{y}")
-        #nn.label_hidden_layers('a')
+        nn.label_hidden_layers('a')
         # nn.label_outputs_text('Predict')
         self.play(Create(nn),run_time=5)
        # self.wait(10)
@@ -558,7 +557,7 @@ class S2(Scene):
         
         work_ECG=Tex("\\emph{My work:}",color="BLACK")
         work_ECG.move_to(LEFT*4+UP*1.6)
-        mission1=Tex("1. Data processing with normalization",color="BLACK").move_to(UP*0.5).scale(0.7)
+        mission1=Tex("\\emph{1.} Data processing with normalization",color="BLACK").move_to(UP*0.5).scale(0.7)
         mission2=Tex("\\emph{2.} Developed a CNN model using tensorflow and keras",color="BLACK").scale(0.7).move_to(DOWN*0.5)
         mission3=Tex("\\emph{3.} Designed a quantization compression method",color="BLACK").move_to(DOWN*1.5).scale(0.7)
         self.play(
@@ -567,3 +566,135 @@ class S2(Scene):
             Write(mission2),
             Write(mission3),
         )
+        self.play(
+            Unwrite(work_ECG),
+            Unwrite(mission1),
+            Unwrite(mission2),
+            Unwrite(mission3),
+            Unwrite(R1),
+        )
+
+        Beam=Tex("电子束光刻工艺的高精度三维仿真研究（国创）",tex_template=TexTemplateLibrary.ctex,color="BLACK").scale(0.7)
+        self.play(Write(Beam))
+        #Beam.scale(0.5)
+        self.play(ApplyMethod(Beam.scale,0.6))
+        self.play(ApplyMethod(Beam.to_corner,DOWN+LEFT))
+        matlab=ImageMobject("Matlab_Logo.png").scale(0.4)
+        mat=Tex("Matlab",color="RED").scale(1.2).move_to(LEFT*2.5)
+        self.play(FadeIn(matlab,shift=DOWN, scale=0.66))
+        Monte = Tex("Monte Carlo Simulation",color="BLUE").scale(1.2).move_to(RIGHT*2.3)
+        self.play(ApplyMethod(matlab.shift,LEFT*5),Write(mat,reverse=True),Write(Monte),)
+        groupofmatlab=VGroup(mat,Monte)
+        self.play(FadeOut(matlab),ApplyMethod(groupofmatlab.scale,0.55))
+        self.play(ApplyMethod(groupofmatlab.shift,LEFT*5+UP*2))
+       
+        import numpy as np
+        import random as ran
+        offset = (-4, -1, 0)
+
+        circle = Circle(radius=2, color=RED)
+        circle.move_to(offset)
+
+        square = Rectangle(width=4, height=4,color="BLACK")
+        square.move_to(offset)
+
+
+        self.play(Create(circle),Create(square))
+
+        point_text, point_number = point_label = VGroup(
+            Tex("All dot : ",color=BLACK),
+            DecimalNumber(
+                0,
+                show_ellipsis=False,
+                num_decimal_places=0,
+                color=BLACK
+            )
+        )
+
+        in_text, in_number = in_label = VGroup(
+            Tex("Dot in a circle : ",color=BLACK),
+            DecimalNumber(
+                0,
+                show_ellipsis=False,
+                num_decimal_places=0,
+                color=BLACK
+            )
+        )
+
+        pi_text, pi_number = pi_label = VGroup(
+            Tex("Pi : ",color="BLACK"),
+            DecimalNumber(
+                0,
+                show_ellipsis=True,
+                num_decimal_places=4,
+                color=BLACK
+            )
+        )
+        point_label.arrange(RIGHT)
+        in_label.arrange(RIGHT)
+        pi_label.arrange(RIGHT)
+
+        point_label.move_to((2, -2, 0))
+        in_label.move_to((2, 0, 0))
+        pi_label.move_to((-4, 1.5, 0))
+
+        self.add(pi_label)
+
+        count_all = 0
+        c = 0
+        apx_pi = 0
+
+        point_number.add_updater(lambda m: m.set_value(count_all))
+        in_number.add_updater(lambda m: m.set_value(c))
+        pi_number.add_updater(lambda m: m.set_value(apx_pi))
+        line2 = Line(UP*2.5+LEFT*1.2,DOWN*3+LEFT*1.2,color="BLACK").set_opacity(0.3)
+        self.play(Create(line2))       
+        work_b=Tex("\\emph{My work:}",color="BLACK")
+        work_b.move_to(RIGHT+UP*2)
+        mission1a=Tex("\\emph{1.} Developed an appropriate physical model",color="BLACK").move_to(UP*0.5+RIGHT*2.5).scale(0.7)
+        mission2a=Tex("\\emph{2. }Simulated the scattering and energy distribution ",color="BLACK").scale(0.7).move_to(DOWN*0.5+RIGHT*3)
+        mission3a=Tex("of electrons in photoresist and substrate",color="BLACK").move_to(DOWN*1.5+RIGHT*2).scale(0.7)
+        self.play(
+            Write(work_b),
+            Write(mission1a),
+            Write(mission2a),
+            Write(mission3a),
+        )
+        ran.seed(1)
+        for i in range(1001):
+            pos = (-6 + ran.random() * 4, -3 + ran.random() * 4, 0)
+            if((pos[0] + 4) ** 2 + (pos[1]+1) ** 2 < 4):
+                d = Dot(color=RED, radius = 0.04)
+                c += 1
+            else:
+                d = Dot(color=GREEN, radius = 0.04)
+            d.move_to(pos)
+
+            self.play(Create(d, run_time=0.005))
+            count_all = i
+            apx_pi = c/(i+1) * 4
+        self.play(
+            Unwrite(Beam),
+            Unwrite(groupofmatlab),
+            Uncreate(circle),
+            Uncreate(square),
+            Unwrite(work_b),
+            Unwrite(mission1a),
+            Unwrite(mission2a),
+            Unwrite(mission3a),
+            Uncreate(line2),
+            FadeOut(pi_label),
+            Unwrite(R2),
+        )
+        self.clear()
+        self.play(FadeOut(Content1,scale=1.5))
+        self.wait(2)
+
+class S2(Scene):
+    def construct(self):
+        Honors = Text("Honors").scale(1.2)
+        for letter in Honors:
+            letter.set_color(random_bright_color())
+
+        self.play(FadeIn(Honors,scale=1.5))
+        self.play(ApplyMethod(Honors.shift,UP*3))

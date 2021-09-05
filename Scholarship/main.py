@@ -688,7 +688,6 @@ class S1(Scene):
         )
         self.clear()
         self.play(FadeOut(Content1,scale=1.5))
-        self.wait(2)
 
 class S2(Scene):
     def construct(self):
@@ -698,3 +697,22 @@ class S2(Scene):
 
         self.play(FadeIn(Honors,scale=1.5))
         self.play(ApplyMethod(Honors.shift,UP*3))
+        jiangxuejin=Tex("\\emph{1. }奖学金",tex_template=TexTemplateLibrary.ctex,color="BLACK").move_to(LEFT*5+UP*1.5)
+        self.play(Write(jiangxuejin))
+        ho1=MarkupText(
+            f'<span fgcolor="{ORANGE}">课程</span><span fgcolor="{BLACK}">奖</span>',
+            color=BLACK,
+            font_size=34
+        ).move_to((-4,0.5,0))
+        #ho2=MarkupText(
+        #    f'<span fgcolor="{ORANGE}">课程</span><span fgcolor="{BLACK}">奖</span>',
+        #    color=BLACK,
+        #    font_size=34
+        #)
+        ho1_1=MarkupText(f'- 数学分析',color=BLACK,font_size=32).move_to((-2,0,0))
+        ho1_2=MarkupText(f'- 线性代数',color="BALCK",font_size=32).move_to((1,0,0))
+        self.play(
+            FadeIn(ho1),
+            FadeIn(ho1_1),
+
+        )

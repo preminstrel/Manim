@@ -709,10 +709,81 @@ class S2(Scene):
         #    color=BLACK,
         #    font_size=34
         #)
-        ho1_1=MarkupText(f'- 数学分析',color=BLACK,font_size=32).move_to((-2,0,0))
-        ho1_2=MarkupText(f'- 线性代数',color="BALCK",font_size=32).move_to((1,0,0))
+        ho1_1=MarkupText(f'- 数学分析',color=BLACK,font_size=32).move_to((-2,-0.5,0))
+        ho1_2=MarkupText(f'- 线性代数',color=BLACK,font_size=32).move_to((1,-0.5,0))
+        ho1_3=MarkupText(f'- CET-4' ,color=BLACK,font_size=32).move_to((-2.2,-1.5,0))
+        ho1_4=MarkupText(f'- 大学物理',color=BLACK,font_size=32).move_to((1,-1.5,0))
+        ho1_5=MarkupText(f'……',color=BLACK,font_size=32).move_to((-2.5,-2.5,0))
         self.play(
             FadeIn(ho1),
             FadeIn(ho1_1),
-
+            FadeIn(ho1_2),
+            FadeIn(ho1_3),
+            FadeIn(ho1_4),
+            FadeIn(ho1_5),
         )
+
+        ho2=MarkupText(
+            f'<span fgcolor="{BLUE}">春季</span><span fgcolor="{BLACK}">奖学金</span>',
+            color=BLACK,
+            font_size=34
+        ).move_to((-4,0.5,0))
+        #ho2=MarkupText(
+        #    f'<span fgcolor="{ORANGE}">课程</span><span fgcolor="{BLACK}">奖</span>',
+        #    color=BLACK,
+        #    font_size=34
+        #)
+        ho2_1=MarkupText(f'- <span fgcolor="{LIGHT_BROWN}">686校友</span>奖学金',color=BLACK,font_size=32).move_to((-2,-0.5,0))
+        ho2_2=MarkupText(f'- <span fgcolor="{RED}">正保教育</span>奖学金',color=BLACK,font_size=32).move_to((-2,-1.5,0))
+       
+        ho2_3=ImageMobject("686.jpg").scale(0.2).move_to(RIGHT*2+DOWN)
+        
+        ho2_4=ImageMobject("zb.jpg").scale(0.2).move_to(RIGHT*5+DOWN)
+        self.play(
+            Transform(ho1,ho2),
+            Transform(ho1_1,ho2_1),
+            Transform(ho1_3,ho2_2),
+            FadeOut(ho1_2,scale=1.3),
+            FadeOut(ho1_4,scale=1.3),
+            FadeOut(ho1_5),
+            FadeIn(ho2_3,scale=0.3),
+            FadeIn(ho2_4,scale=0.3)
+        )
+        sanhaosheng=Tex("\\emph{2. }年度荣誉",tex_template=TexTemplateLibrary.ctex,color="BLACK").move_to(LEFT*5+UP*1.5)
+        ho3=MarkupText(
+            f'<span fgcolor="{BLUE}">东南大学</span><span fgcolor="{BLACK}">校三好学生</span>',
+            color=BLACK,
+            font_size=34
+        ).move_to((-4.2,0,0))
+        ho4=MarkupText(
+            f'<span fgcolor="{ORANGE}">电子学院</span><span fgcolor="{BLACK}">科技创新创业先进分子</span>',
+            color=BLACK,
+            font_size=34
+        ).move_to((-3,-1.8 ,0))
+        #ho4_1=MarkupText(f'- <span fgcolor="{LIGHT_BROWN}">686校友</span>奖学金',color=BLACK,font_size=32).move_to((-2,-0.5,0))
+        #ho4_2=MarkupText(f'- <span fgcolor="{RED}">正保教育</span>奖学金',color=BLACK,font_size=32).move_to((-2,-1.5,0))
+       
+        ho4_1=ImageMobject("2.jpg").scale(0.2).move_to(RIGHT*3+UP*0.5).rotate(-PI/2)
+        
+        ho4_2=ImageMobject("1.jpg").scale(0.2).move_to(RIGHT*3+DOWN*2.2).rotate(-PI/2)
+        self.play(
+            FadeOut(ho1,sacle=0.5),
+            Transform(jiangxuejin,sanhaosheng),
+            Transform(ho1_1,ho3),
+            Transform(ho1_3,ho4),
+            Transform(ho2_3,ho4_1),
+            Transform(ho2_4,ho4_2)
+        )
+
+        youxuesheng=Tex("\\emph{3. }学习优秀生",tex_template=TexTemplateLibrary.ctex,color="BLACK").move_to(LEFT*4.7+DOWN*3.2)
+
+        self.play(Write(youxuesheng))
+        
+
+        Life = Text("Life").scale(1.2)
+        for letter in Life:
+            letter.set_color(random_bright_color())
+        self.clear()
+        self.play(Transform(Honors,Life))
+        self.play(ApplyMethod(Honors.shift,UP*3))
+ 

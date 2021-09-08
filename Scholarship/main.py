@@ -285,7 +285,7 @@ class S1(Scene):
         me = ImageMobject("ME.png").scale(0.13)
         self.play(FadeIn(me))
         self.play(ApplyMethod(me.shift,LEFT*4))
-        Major = Tex("Major\qquad 电子科学与技术（无锡）",tex_template=TexTemplateLibrary.ctex,color="BLACK").scale(0.9).move_to(UP*0.8+RIGHT*0.9)
+        Major = Tex("Major\qquad 电子科学与技术（无锡）",tex_template=TexTemplateLibrary.ctex,color="BLACK").scale(0.9).move_to(UP*0.8+RIGHT*1.8)
         Name = Tex("Name\qquad 孙寒石",tex_template=TexTemplateLibrary.ctex,color="BLACK").scale(0.9)
         Class = Tex("Class\qquad 062191",tex_template=TexTemplateLibrary.ctex,color="BLACK").scale(0.9).move_to(DOWN*0.8)
         self.play(
@@ -323,9 +323,7 @@ class S1(Scene):
             FadeOut(Content2),
             FadeOut(Content3),
         )
-        Study = Text("Study").scale(1.2)
-        for letter in Study:
-            letter.set_color(random_bright_color())
+        Study = Text("Study",gradient=(PINK, GREEN, ORANGE)).scale(1.2)
         self.play(Transform(Content1,Study))
         Study_copy = Study.shift(UP)
         self.play(
@@ -406,7 +404,7 @@ class S1(Scene):
   
         Signal=Tex("信号与系统",tex_template=TexTemplateLibrary.ctex,color="BLACK").scale(0.7).move_to(RIGHT*1.56+UP*0.5)
         rectan7=Rectangle(color="BROWN")
-        rectan7.surround(linear_a,buff=0.30)
+        rectan7.surround(Signal,buff=0.30)
         #group2=VGroup(linear_a,rectan2)
         s7=Tex("95",color="BLACK").move_to(RIGHT*4+UP*0.5)
         rec7=Circle(color="BROWN")
@@ -501,9 +499,9 @@ class S1(Scene):
 
 ### STRAT OF RESEARCH
 
-        Research = Text("Research").scale(1.2)
-        for letter in Research:
-            letter.set_color(random_bright_color())
+        Research = Text("Research",gradient=(RED, BLUE, GREEN)).scale(1.2)
+        #for letter in Research:
+        #    letter.set_color(random_bright_color())
         self.play(Transform(Content1,Research))
         self.play(
             #FadeOut(Content1),
@@ -689,11 +687,7 @@ class S1(Scene):
         self.clear()
         self.play(FadeOut(Content1,scale=1.5))
 
-class S2(Scene):
-    def construct(self):
-        Honors = Text("Honors").scale(1.2)
-        for letter in Honors:
-            letter.set_color(random_bright_color())
+        Honors = Text("Honors",gradient=(ORANGE, RED, BLUE)).scale(1.2)
 
         self.play(FadeIn(Honors,scale=1.5))
         self.play(ApplyMethod(Honors.shift,UP*3))
@@ -780,17 +774,98 @@ class S2(Scene):
         self.play(Write(youxuesheng))
         
 ### START of LIFE
-        Life = Text("Life").scale(1.2)
-        for letter in Life:
-            letter.set_color(random_bright_color())
-        self.clear()
+        Life = Text("Life",gradient=(RED, BLUE, GREEN)).scale(1.2)
+        self.play(
+            FadeOut(youxuesheng),
+            FadeOut(ho1_1),
+            FadeOut(ho1_3),
+            FadeOut(ho2_3),
+            FadeOut(ho2_4),
+            Unwrite(jiangxuejin)
+        )
         self.play(Transform(Honors,Life))
         self.play(ApplyMethod(Honors.shift,UP*3))
         uni=Tex("\\emph{1. }学生会·学习部",tex_template=TexTemplateLibrary.ctex,color="BLACK").move_to(LEFT*4+UP*2)
         
         uni_d=MarkupText(f'大一：担任<span fgcolor="{BLUE}">学习部干事</span>',color=BLACK,font_size=34).move_to((-3,0.5,0))
-
         ui_d2=MarkupText(f'大二：参与<span fgcolor="{ORANGE}">新老生交流会</span>',color=BLACK,font_size=34).move_to((-2.9,-1,0))
-        ui_p1=ImageMobject("l.jpeg").move_to((3,0.5,0)).scale(0.5)
-        ui_p2=ImageMobject("k.jpeg").move_to((3,-1,0)).scale(0.3)
-        self.play(Write(uni),FadeIn(uni_d),FadeIn(ui_d2),FadeIn(ui_p1))
+        ui_p1=ImageMobject("l.jpeg").move_to((3,1,0)).scale(0.5)
+        ui_p2=ImageMobject("k.jpeg").move_to((3,-2.3,0)).scale(0.57)
+        self.play(Write(uni),FadeIn(uni_d),FadeIn(ui_d2),FadeIn(ui_p1),FadeIn(ui_p2))
+
+        jingsai=Tex("\\emph{2. }竞赛",tex_template=TexTemplateLibrary.ctex,color="BLACK").move_to(LEFT*5.5+UP*2)
+        Rob=MarkupText(f'- <span fgcolor="{GRAY}">Rob</span>Cup',color=BLACK,font_size=34).move_to((-4,1,0))
+        mathcomp = MarkupText(f'- <span fgcolor="{BLUE}">高数</span>竞赛',color=BLACK,font_size=34).move_to((-4,0.1,0))
+        veh= MarkupText(f'- <span fgcolor="{ORANGE}">智能车</span>竞赛',color=BLACK,font_size=34).move_to((-4,-1.7,0))
+        code= MarkupText(f'- <span fgcolor="{LIGHT_BROWN}">数学</span>建模',color=BLACK,font_size=34).move_to((-4,-0.8,0))
+        dots=Tex("$\\cdots \\cdots$",color="BLACK").move_to((-4,-2.6 ,0))
+        com_p1=ImageMobject("9.jpg").move_to((3,1,0)).scale(0.2).rotate(-PI/2)
+        com_p2=ImageMobject("6.jpg").move_to((3,-2,0)).scale(0.2).rotate(-PI/2)
+        self.play(
+            Transform(uni,jingsai),
+            FadeOut(uni_d,scale=0.3),
+            FadeIn(Rob,scale=1.3),
+            FadeOut(ui_d2,scale=0.3),
+            FadeIn(mathcomp,scale=1.3),
+            FadeIn(veh,scale=1.3),
+            FadeIn(code,scale=1.3),
+            Write(dots),
+            FadeOut(ui_p1),
+            FadeOut(ui_p2),
+            FadeIn(com_p1,scale=1.5),
+            FadeIn(com_p2,scale=1.5)
+        )
+
+        shehui=Tex("\\emph{3. }社会实践",tex_template=TexTemplateLibrary.ctex,color="BLACK").move_to(LEFT*4.5+UP*2)
+        sp=ImageMobject("s.jpg").move_to((3,-0.7,0)).scale(1.2)
+        sd1=MarkupText(f'- <span fgcolor="{LIGHT_BROWN}">江淮红旅</span>团',color=BLACK,font_size=34).move_to((-4,0,0))
+        sd2=MarkupText(f'- <span fgcolor="{RED}">红色挑战杯</span>省一',color=BLACK,font_size=34).move_to((-4,-1,0))
+        sd3=MarkupText(f'- <span fgcolor="{GREEN}">校级</span>一等奖',color=BLACK,font_size=34).move_to((-4,-2,0))
+
+
+        self.play(
+            Transform(uni,shehui),
+            FadeIn(sp),
+            FadeOut(com_p1,scale=1.5),
+            FadeOut(com_p2,scale=1.5),            
+            FadeOut(Rob,scale=1.3),
+            #FadeOut(ui_d2,scale=0.3),
+            FadeOut(mathcomp,scale=1.3),
+            FadeOut(veh,scale=1.3),
+            FadeOut(code,scale=1.3),
+            Unwrite(dots),
+            FadeIn(sd1),
+            FadeIn(sd2),
+            FadeIn(sd3),
+        )
+        self.play(
+            FadeOut(sd1),
+            FadeOut(sd2),
+            FadeOut(sd3),
+            FadeOut(sp),
+            Unwrite(uni),
+        )
+        fin= Text("Fin.", slant=ITALIC,color=BLACK).scale(1.2)
+        self.play(Transform(Honors,fin))
+        Thanks=Tex("Thank you",color=BLACK).scale(2.5)
+        self.play(ApplyMethod(Honors.shift,UP*3),Write(Thanks))
+
+        #contact = Tex("Contact me").scale(2)
+        #contact.move_to(UP*3)
+        github = Tex("https://github.com/preminstrel",color=BLACK).scale(0.5)
+        github.move_to((-3,-3,0))
+        mail = Tex("preminstrel@gmail.com",color=BLACK).scale(0.5)
+        mail.move_to((3,-3,0))
+        github_png = ImageMobject("Github.png").scale(0.05)
+        github_png.move_to((-3,-3,0))
+        mail_svg = SVGMobject("Gmail.svg").scale(0.25)
+        mail_svg.move_to((3,-3,0))
+        
+        self.play(Create(mail_svg),FadeIn(github_png))
+        self.play(mail_svg.animate.shift(LEFT*1.75),github_png.animate.shift(LEFT*1.75))
+        github.next_to(github_png, RIGHT,buff = 0.5)
+        mail.next_to(mail_svg,RIGHT,buff = 0.5)
+        self.play(Write(mail),Write(github))
+        self.wait(1)
+
+

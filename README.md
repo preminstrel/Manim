@@ -24,7 +24,7 @@ The Project *Scholarship* is used for preparation for application for National S
 This project is to draw Electron Cloud based on Matlab programming.
 
 - Based on article "Drawing Angular Part of Atomic Orbital and Hybrid Orbital By Using MATLAB" by LV Shenzhuɑnɡ(School of Chemistry， Leshan Normal University， Leshan Sichuan 614000， China).
-
 - The codes is not included in this repository.
+- The video is in `./Draw-Electron-Cloud/media/videos/solidphy/720p30/scene1.mp4`
 
 ![first-page](./Draw-Electron-Cloud/first-page.png)

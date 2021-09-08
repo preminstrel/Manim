@@ -2,8 +2,8 @@
 ##### @env Ubuntu 20.04, manim community v0.10.0 
 
 [![last-commit](https://img.shields.io/github/last-commit/preminstrel/Manim)](../../graphs/commit-activity)
-[![Open Source Love](https://img.shields.io/badge/-%E2%9D%A4%20Open%20Source-Green?style=flat-square&logo=Github&logoColor=white)
-![GPL Licence](https://img.shields.io/badge/license-MIT-blue)]
+![Open Source Love](https://img.shields.io/badge/-%E2%9D%A4%20Open%20Source-Green?style=flat-square&logo=Github&logoColor=white)
+![GPL Licence](https://img.shields.io/badge/license-MIT-blue)
 [![Repo-Size](https://img.shields.io/github/repo-size/preminstrel/Manim.svg)](../../archive/master.zip)
 
 Some projects that use *manim* animation engine. 

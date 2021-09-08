@@ -779,11 +779,18 @@ class S2(Scene):
 
         self.play(Write(youxuesheng))
         
-
+### START of LIFE
         Life = Text("Life").scale(1.2)
         for letter in Life:
             letter.set_color(random_bright_color())
         self.clear()
         self.play(Transform(Honors,Life))
         self.play(ApplyMethod(Honors.shift,UP*3))
- 
+        uni=Tex("\\emph{1. }学生会·学习部",tex_template=TexTemplateLibrary.ctex,color="BLACK").move_to(LEFT*4+UP*2)
+        
+        uni_d=MarkupText(f'大一：担任<span fgcolor="{BLUE}">学习部干事</span>',color=BLACK,font_size=34).move_to((-3,0.5,0))
+
+        ui_d2=MarkupText(f'大二：参与<span fgcolor="{ORANGE}">新老生交流会</span>',color=BLACK,font_size=34).move_to((-2.9,-1,0))
+        ui_p1=ImageMobject("l.jpeg").move_to((3,0.5,0)).scale(0.5)
+        ui_p2=ImageMobject("k.jpeg").move_to((3,-1,0)).scale(0.3)
+        self.play(Write(uni),FadeIn(uni_d),FadeIn(ui_d2),FadeIn(ui_p1))

@@ -6,7 +6,7 @@
 [![GPL Licence](https://img.shields.io/badge/license-MIT-blue)](https://opensource.org/licenses/GPL-3.0/)
 [![Repo-Size](https://img.shields.io/github/repo-size/preminstrel/Manim.svg)](../../archive/master.zip)
 
-Some projects that use *manim* engine. 
+Some projects that use *manim* animation engine. 
 
 ### Scholarship
 

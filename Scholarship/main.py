@@ -314,7 +314,7 @@ class S1(Scene):
             Write(Content3),
             Write(Content4),
         )
-
+        self.wait(4)
         # END of Page 2
 
         self.play(
@@ -551,19 +551,21 @@ class S1(Scene):
         self.play(Uncreate(nn),run_time=3)
         CNN=ImageMobject("CNN.jpg").scale(1.5).move_to(DOWN*0.5)
         self.play(Unwrite(E17c),FadeIn(CNN),ApplyMethod(predict.shift,DOWN*1),ApplyMethod(RectanPre.shift,DOWN*1))
+        self.wait(13)
         self.play(Uncreate(RectanPre),Uncreate(RectanECG),FadeOut(CNN),Unwrite(predict),FadeOut(ECG))
-        
+        #self.wait(15) 
         work_ECG=Tex("\\emph{My work:}",color="BLACK")
         work_ECG.move_to(LEFT*4+UP*1.6)
         mission1=Tex("\\emph{1.} Data processing with normalization",color="BLACK").move_to(UP*0.5).scale(0.7)
-        mission2=Tex("\\emph{2.} Developed a CNN model using tensorflow and keras",color="BLACK").scale(0.7).move_to(DOWN*0.5)
-        mission3=Tex("\\emph{3.} Designed a quantization compression method",color="BLACK").move_to(DOWN*1.5).scale(0.7)
+        mission2=Tex("\\emph{2.} Developed a CNN model using Pytorch",color="BLACK").scale(0.7).move_to(DOWN*0.5)
+        mission3=Tex("\\emph{3.} Designed an Adaptive Loss-aware Multi-bit Networks Quantization method",color="BLACK").move_to(DOWN*1.5).scale(0.7)
         self.play(
             Write(work_ECG),
             Write(mission1),
             Write(mission2),
             Write(mission3),
         )
+        self.wait(13)
         self.play(
             Unwrite(work_ECG),
             Unwrite(mission1),
@@ -686,7 +688,13 @@ class S1(Scene):
         )
         self.clear()
         self.play(FadeOut(Content1,scale=1.5))
-
+        do = SVGMobject("document.svg").scale(3.5).move_to((-3,0,0))
+        document1 = Tex("Published by IEEE",color="BLACK").move_to((3,1.5,0))
+        document2 = Tex("EI Compendex, CPCI, SCOPUS",color = "BLACK").scale(0.9).move_to((3.5,0,0))
+        document3 = Tex("First Author",color = "BLACK").move_to((3,-1.5,0))
+        self.play(FadeIn(do),Write(document1),Write(document2),Write(document3))
+        self.wait(8)
+        self.play(FadeOut(do),Unwrite(document1),Unwrite(document2),Unwrite(document3)) 
         Honors = Text("Honors",gradient=(ORANGE, RED, BLUE)).scale(1.2)
 
         self.play(FadeIn(Honors,scale=1.5))
@@ -716,7 +724,7 @@ class S1(Scene):
             FadeIn(ho1_4),
             FadeIn(ho1_5),
         )
-
+        self.wait(2)
         ho2=MarkupText(
             f'<span fgcolor="{BLUE}">春季</span><span fgcolor="{BLACK}">奖学金</span>',
             color=BLACK,
@@ -743,6 +751,7 @@ class S1(Scene):
             FadeIn(ho2_3,scale=0.3),
             FadeIn(ho2_4,scale=0.3)
         )
+        self.wait(3)
         sanhaosheng=Tex("\\emph{2. }年度荣誉",tex_template=TexTemplateLibrary.ctex,color="BLACK").move_to(LEFT*5+UP*1.5)
         ho3=MarkupText(
             f'<span fgcolor="{BLUE}">东南大学</span><span fgcolor="{BLACK}">校三好学生</span>',
@@ -772,7 +781,7 @@ class S1(Scene):
         youxuesheng=Tex("\\emph{3. }学习优秀生",tex_template=TexTemplateLibrary.ctex,color="BLACK").move_to(LEFT*4.7+DOWN*3.2)
 
         self.play(Write(youxuesheng))
-        
+        self.wait(6) 
 ### START of LIFE
         Life = Text("Life",gradient=(RED, BLUE, GREEN)).scale(1.2)
         self.play(
@@ -792,7 +801,7 @@ class S1(Scene):
         ui_p1=ImageMobject("l.jpeg").move_to((3,1,0)).scale(0.5)
         ui_p2=ImageMobject("k.jpeg").move_to((3,-2.3,0)).scale(0.57)
         self.play(Write(uni),FadeIn(uni_d),FadeIn(ui_d2),FadeIn(ui_p1),FadeIn(ui_p2))
-
+        self.wait(6)
         jingsai=Tex("\\emph{2. }竞赛",tex_template=TexTemplateLibrary.ctex,color="BLACK").move_to(LEFT*5.5+UP*2)
         Rob=MarkupText(f'- <span fgcolor="{GRAY}">Rob</span>Cup',color=BLACK,font_size=34).move_to((-4,1,0))
         mathcomp = MarkupText(f'- <span fgcolor="{BLUE}">高数</span>竞赛',color=BLACK,font_size=34).move_to((-4,0.1,0))
@@ -815,13 +824,13 @@ class S1(Scene):
             FadeIn(com_p1,scale=1.5),
             FadeIn(com_p2,scale=1.5)
         )
-
+        self.wait(1)
         shehui=Tex("\\emph{3. }社会实践",tex_template=TexTemplateLibrary.ctex,color="BLACK").move_to(LEFT*4.5+UP*2)
         sp=ImageMobject("s.jpg").move_to((3,-0.7,0)).scale(1.2)
         sd1=MarkupText(f'- <span fgcolor="{LIGHT_BROWN}">江淮红旅</span>团',color=BLACK,font_size=34).move_to((-4,0,0))
         sd2=MarkupText(f'- <span fgcolor="{RED}">红色挑战杯</span>省一',color=BLACK,font_size=34).move_to((-4,-1,0))
         sd3=MarkupText(f'- <span fgcolor="{GREEN}">校级</span>一等奖',color=BLACK,font_size=34).move_to((-4,-2,0))
-
+        #self.wait(3)
 
         self.play(
             Transform(uni,shehui),
@@ -838,6 +847,7 @@ class S1(Scene):
             FadeIn(sd2),
             FadeIn(sd3),
         )
+        self.wait(2)
         self.play(
             FadeOut(sd1),
             FadeOut(sd2),
@@ -845,6 +855,7 @@ class S1(Scene):
             FadeOut(sp),
             Unwrite(uni),
         )
+        #self.wait(3)
         fin= Text("Fin.", slant=ITALIC,color=BLACK).scale(1.2)
         self.play(Transform(Honors,fin))
         Thanks=Tex("Thank you",color=BLACK).scale(2.5)
@@ -866,6 +877,6 @@ class S1(Scene):
         github.next_to(github_png, RIGHT,buff = 0.5)
         mail.next_to(mail_svg,RIGHT,buff = 0.5)
         self.play(Write(mail),Write(github))
-        self.wait(1)
+        self.wait(13)
 
 

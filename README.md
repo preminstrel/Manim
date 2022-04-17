@@ -1,7 +1,7 @@
 # Manim
 
 ![manim](https://img.shields.io/badge/manim-0.10.0-red?style=flat-square)
-![GPL Licence](https://img.shields.io/badge/license-MIT-blue?style=flat-square)
+![GPL Licence](https://img.shields.io/badge/license-MIT-green?style=flat-square)
 [![Repo-Size](https://img.shields.io/github/repo-size/preminstrel/Manim.svg?style=flat-square)](../../archive/master.zip)
 
 Some projects that use *manim* animation engine. 
